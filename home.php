@@ -10,9 +10,19 @@ if($hournow < 7){
 if($hournow >= 8 and $hournow <18){
 	$partofday="Peoaeg!";
 }
-
-
-
+//vaatame semestri kulgemist.
+$semesterstart = new DateTime("2020-8-31");
+$semesterend = new DateTime("2020-12-13");
+//Selgitame välja nende vahe ehk erinevuse
+$semesterduration = $semesterstart->diff($semesterend);
+//leiame selle päevade arvuna 
+$semesterdurationdays = $semesterduration->format("%r%a");
+//leiame tänase päevaga samamoodi saad kasutada et semester polegi peale hakanud.
+$today = new DateTime("now");
+$semesterdurationtoday = 
+// Leia tänase päevaga pikkus, seejärel if fromsemesterstartdays < 0{siis pole semester veel peale hakanud}
+// Kui päevad on läbi siis ütle et õppetöö on läbi ja pane echo käsuga välja kuskile 
+//samuti leia protsent palju jäänud on oh boy dis gon be fun
 ?>
 <!DOCTYPE html>
 <html lang="et">
