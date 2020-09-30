@@ -2,7 +2,7 @@
   require("../config_vp2020.php");
   require("fnc_common.php");
   #require("fnc_common.php");
-  #require("fnc_user.php");
+  require("fnc_user.php");
   #kui klikiti nuppu, siis kontrollime ja salvestame
   $monthnameset = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
   $firstname= "";
@@ -93,13 +93,21 @@
 	  }
 	  
 	  if(empty($firstnameerror) and empty($lastnameerror) and empty($gendererror ) and empty($emailerror) and empty($passworderror) and empty($confirmpassworderror)){
-		//$notice = signup($firstname, $lastname, $email, $gender, $birthdate, $_POST["passwordinput"]);
-		$notice = "Kõik korras!";
-		
-		$firstname= "";
-	    $lastname = "";
-		$gender = "";
-		$email = "";
+		$result = signup($firstname, $lastname, $email, $gender, $birthdate, $_POST["passwordinput"]);
+		//$notice = "Kõik korras!";
+		if($result=="ok"){
+			$notice= "Kasutaja on edukalt loodud!";
+		}
+		    $firstname= "";
+	        $lastname = "";
+		    $gender = "";
+		    $email = "";
+			$birthday=null;
+            $birthmonth=null;
+            $birthyear=null;
+			  $birthdate=null;
+	  } else {
+		  $notice = "Kahjuks tekkis tehniline viga: ".$result;
 	  }
 	  
   }

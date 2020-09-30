@@ -1,5 +1,5 @@
 <?php
-  $database = "if20_Karl_reim_1";
+  $database = "if20_Karl_ri_1";
   
   //andmebaasisit filmide lugemise funktsioon
   function readfilms($choice) {
